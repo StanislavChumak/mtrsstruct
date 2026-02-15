@@ -1,4 +1,10 @@
 struct StateAnimator_sc
 {
     DYNAMIC_FIELD(states);
+    struct State
+    {
+        std::string name;
+        uint16_t offset;
+        uint16_t count;
+    };
 };
