@@ -1,0 +1,6 @@
+struct Trancform_sc
+{
+    int64_t posX, posY;
+    float scaleSizeX, scaleSizeY;
+    float rotation;
+};

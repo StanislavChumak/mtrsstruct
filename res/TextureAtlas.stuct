@@ -1,0 +1,8 @@
+struct TextureAtlas_rs
+{
+    DYNAMIC_FIELD(name);
+    uint64_t width;
+    uint64_t height;
+    uint64_t subWidth;
+    uint64_t subHeight;
+};

@@ -1,0 +1,4 @@
+struct StateAnimator_sc
+{
+    DYNAMIC_FIELD(states);
+};

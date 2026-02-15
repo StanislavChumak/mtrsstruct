@@ -1,0 +1,10 @@
+#define COMPONENT_TYPE \
+X(Transform)\
+X(Parend)\
+X(Children)\
+X(Sprite)\
+X(Animator)\
+X(StateAnimator)\
+X(Sound)\
+X(Music)\
+X(CursorFollower)

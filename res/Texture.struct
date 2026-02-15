@@ -1,0 +1,5 @@
+struct Texture_rs
+{
+    DYNAMIC_FIELD(name);
+    DYNAMIC_FIELD(path);
+};

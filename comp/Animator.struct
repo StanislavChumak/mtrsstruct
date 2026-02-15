@@ -1,0 +1,4 @@
+struct Animator_sc
+{
+    DYNAMIC_FIELD(durations);
+};

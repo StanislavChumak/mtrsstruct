@@ -1,0 +1,9 @@
+struct Sprite_sc
+{
+    DYNAMIC_FIELD(shader);
+    DYNAMIC_FIELD(texture);
+    DYNAMIC_FIELD(atlas);
+    float layer;
+    uint32_t sizeX, sizeY;
+    uint32_t color;
+};

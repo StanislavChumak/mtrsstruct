@@ -1,0 +1,3 @@
+#ifndef DYNAMIC_FIELD
+#define DYNAMIC_FIELD(name) uint32_t name##Offset, name##Size
+#endif
