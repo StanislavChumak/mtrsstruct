@@ -1,6 +1,6 @@
 struct Trancform_sc
 {
-    int64_t posX, posY;
-    float scaleSizeX, scaleSizeY;
+    int64_t pos_x, pos_y;
+    float scale_size_x, scale_size_y;
     float rotation;
 };
