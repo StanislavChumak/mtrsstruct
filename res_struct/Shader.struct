@@ -1,6 +1,5 @@
 struct Shader_rs
 {
-    DYNAMIC_FIELD(name);
     DYNAMIC_FIELD(vertex);
     DYNAMIC_FIELD(fragment);
 };
