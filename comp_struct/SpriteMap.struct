@@ -1,0 +1,16 @@
+struct SpriteMap_sc
+{
+    DYNAMIC_FIELD(shader);
+    DYNAMIC_FIELD(texture);
+    DYNAMIC_FIELD(atlas);
+    DYNAMIC_FIELD(cell_types);
+    DYNAMIC_FIELD(cell_map);
+    struct MapCell
+    {
+        uint32_t type;
+        uint32_t cord_x, cord_y;
+    };
+    float layer;
+    uint32_t cell_size_x, cell_size_y;
+    uint32_t color;
+};

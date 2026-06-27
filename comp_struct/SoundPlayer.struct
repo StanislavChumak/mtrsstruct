@@ -1,0 +1,5 @@
+struct SoundPlayer_sc
+{
+    DYNAMIC_FIELD(sound);
+    float volume;
+};

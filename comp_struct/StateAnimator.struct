@@ -3,7 +3,7 @@ struct StateAnimator_sc
     DYNAMIC_FIELD(states);
     struct State
     {
-        DYNAMIC_FIELD(name);
+        uint32_t id_state;
         uint16_t offset;
         uint16_t count;
     };

@@ -1,0 +1,6 @@
+struct Sound_sc
+{
+    DYNAMIC_FIELD(path);
+    uint32_t flag;
+    uint16_t count, max_distance;
+};
