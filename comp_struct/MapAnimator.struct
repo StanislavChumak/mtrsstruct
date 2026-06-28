@@ -1,0 +1,5 @@
+struct MapAnimator_sc
+{
+    DYNAMIC_FIELD(ranges);
+    DYNAMIC_FIELD(durations);
+};
