@@ -1,3 +1,4 @@
+#ifndef COMPONENT_TYPE
 #define COMPONENT_TYPE \
 X(Transform)\
 X(Sprite)\
@@ -7,3 +8,4 @@ X(SpriteMap)\
 X(MapAnimator)\
 X(SoundPlayer)\
 X(CursorFollower)
+#endif

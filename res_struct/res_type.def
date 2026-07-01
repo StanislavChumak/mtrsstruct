@@ -1,6 +1,8 @@
+#ifndef RESOURCE_TYPE
 #define RESOURCE_TYPE \
 X(shaders)\
 X(textures)\
 X(atlases)\
 X(sounds)\
 X(render_context)
+#endif
