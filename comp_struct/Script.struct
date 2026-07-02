@@ -1,0 +1,4 @@
+struct Script_sc
+{
+    DYNAMIC_FIELD(script_file);
+};

@@ -1,5 +1,6 @@
 #ifndef COMPONENT_TYPE
 #define COMPONENT_TYPE \
+X(Script)\
 X(Transform)\
 X(Sprite)\
 X(Animator)\

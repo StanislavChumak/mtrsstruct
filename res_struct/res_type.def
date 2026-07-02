@@ -1,5 +1,6 @@
 #ifndef RESOURCE_TYPE
 #define RESOURCE_TYPE \
+X(scripts)\
 X(shaders)\
 X(textures)\
 X(atlases)\
