@@ -4,4 +4,5 @@ struct TextureAtlas_rs
     uint64_t height;
     uint64_t sub_width;
     uint64_t sub_height;
+    bool spirality;
 };
