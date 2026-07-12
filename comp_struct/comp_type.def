@@ -8,6 +8,5 @@ X(Animator)\
 X(StateAnimator)\
 X(SpriteMap)\
 X(MapAnimator)\
-X(SoundPlayer)\
-X(CursorFollower)
+X(SoundPlayer)
 #endif

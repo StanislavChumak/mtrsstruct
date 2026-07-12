@@ -1,4 +1,0 @@
-struct CursorFollower_sc
-{
-    int64_t offset_pos_x, offset_pos_y;
-};

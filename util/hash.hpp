@@ -11,6 +11,11 @@ constexpr uint32_t FNV_OFFSET_BASIS_32 = 2166136261u;
 constexpr uint64_t FNV_PRIME_64        = 1099511628211ull;
 constexpr uint32_t FNV_PRIME_32        = 16777619u;
 
+#define HASH64(name) mtrs::util::hash_c_string<uint64_t>(#name)
+#define HASH64S(name) mtrs::util::hash_c_string<uint64_t>(name)
+#define HASH32(name) mtrs::util::hash_c_string<uint32_t>(#name)
+#define HASH32S(name) mtrs::util::hash_c_string<uint32_t>(name)
+
 namespace mtrs::util
 {
 
