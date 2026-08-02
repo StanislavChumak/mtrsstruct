@@ -1,0 +1,12 @@
+struct Font_sc
+{
+    DYNAMIC_FIELD(texture);
+    DYNAMIC_FIELD(symbols);
+    DYNAMIC_FIELD(symbol_widths);
+    struct SymbolWidth
+    {
+        uint32_t count;
+        uint32_t value;
+    }
+    uint32_t symbol_height;
+};

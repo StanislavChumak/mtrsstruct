@@ -1,7 +1,6 @@
 struct TextureAtlas_rs
 {
-    uint64_t width;
-    uint64_t height;
+    DYNAMIC_FIELD(texture);
     uint64_t sub_width;
     uint64_t sub_height;
     bool spirality;
