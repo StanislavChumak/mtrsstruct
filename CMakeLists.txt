@@ -17,8 +17,6 @@ src/fun/fs/load_external_lib.cpp
 
 src/fun/msg/mtrs_message.cpp
 
-src/fun/prs/mtrs_file.cpp
-
 src/fun/str/string_optimizer.cpp
 src/fun/str/utf8_to_utf32.cpp
 
