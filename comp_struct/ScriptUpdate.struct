@@ -1,4 +1,0 @@
-struct ScriptUpdate_sc
-{
-    DYNAMIC_FIELD(script_file);
-};

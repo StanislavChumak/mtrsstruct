@@ -1,5 +1,0 @@
-struct Texture_rs
-{
-    DYNAMIC_FIELD(path);
-    uint64_t max_instances;
-};

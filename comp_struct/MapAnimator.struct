@@ -1,6 +1,0 @@
-struct MapAnimator_sc
-{
-    struct Range{uint32_t offset, size;};
-    DYNAMIC_FIELD(ranges);
-    DYNAMIC_FIELD(durations);
-};

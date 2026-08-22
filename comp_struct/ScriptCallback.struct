@@ -1,4 +1,0 @@
-struct ScriptCallback_sc
-{
-    DYNAMIC_FIELD(script_file);
-};

@@ -1,4 +1,0 @@
-struct ScriptFile_sc
-{
-    DYNAMIC_FIELD(path);
-};

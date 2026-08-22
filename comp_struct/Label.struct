@@ -1,8 +1,0 @@
-struct Label_sc
-{
-    DYNAMIC_FIELD(shader);
-    DYNAMIC_FIELD(text);
-    float layer;
-    uint32_t size_x, size_y;
-    uint32_t color;
-};
