@@ -1,19 +1,15 @@
-#ifndef JSON_PARSING_HPP
-#define JSON_PARSING_HPP
+#ifndef JSON_HPP
+#define JSON_HPP
 
 #include "simdjson.h"
 
-#include <string>
+#include <array>
 #include <vector>
-#include <unordered_map>
 
 #include "util/fun/msg/mtrs_message.hpp"
 
 namespace mtrs::prs
 {
-
-simdjson::padded_string preprocess_json(const std::string& path,
-    std::unordered_map<std::string, std::string>& defines);
 
 template<typename T, typename R>
 T get_result_json(R result)
@@ -77,14 +73,14 @@ void set_json_to_array(std::vector<D> &dest, S source, std::vector<D> value)
     }
 }
 
-template<typename T, size_t C, typename D, typename S>
-void set_json_to_array_of_array(std::vector<D[C]> &dest, S source)
+template<typename T, typename D, size_t N, typename S>
+void set_json_to_array_of_array(std::vector<std::array<D, N>> &dest, S source)
 {
     auto array_of_array = get_value_json<simdjson::ondemand::array>(source);
     dest.clear();
     dest.reserve(array_of_array.count_elements());
 
-    D array[C];
+    std::array<D, N> array;
     size_t i;
     for(auto iter_array : array_of_array)
     {
@@ -92,10 +88,10 @@ void set_json_to_array_of_array(std::vector<D[C]> &dest, S source)
         for(auto iter : get_value_json<simdjson::ondemand::array>(iter_array))
         {
             array[i++] = get_value_json<T>(iter);
-            if(i >= C)
+            if(i > N)
             {
                 msg::mtrs_warning("In JSON, the number of elements in the array of arrays"
-                    " exceeded the value C(max count)");
+                    " exceeded the value N(", N, ")", get_value_json<T>(iter));
                 break;
             }
         }

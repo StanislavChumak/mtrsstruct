@@ -5,13 +5,26 @@
 
 #include <cstdint>
 #include <vector>
+#include <array>
 #include <string>
+#include <type_traits>
 
 namespace mtrs::prs
 {
 
 struct DeferredData
 {
+private:
+    template<typename T>
+    struct is_std_array : std::false_type {};
+    
+    template<typename U, size_t N>
+    struct is_std_array<std::array<U, N>> : std::true_type {};
+
+    template<typename T>
+    static constexpr bool is_std_array_v = is_std_array<T>::value;
+
+public:
     uint32_t *offset;
     uint32_t size;
     char *data;
@@ -21,7 +34,8 @@ struct DeferredData
     DeferredData(std::string str, uint32_t &offset, uint32_t &size);
 
     template<typename T>
-    DeferredData(std::vector<T> &array, uint32_t &offset, uint32_t &size)
+    DeferredData(std::vector<T> array, uint32_t &offset, uint32_t &size,
+        std::enable_if_t<!is_std_array_v<T>>* = nullptr)
     : offset(&offset)
     {
         this->size = size = static_cast<uint32_t>(sizeof(T) * array.size());
@@ -30,11 +44,11 @@ struct DeferredData
         data = reinterpret_cast<char*>(std::move(array.data()));
     }
 
-    template<typename T, size_t C>
-    DeferredData(std::vector<T[C]> arr_arr, uint32_t &offset, uint32_t &size)
+    template<typename T, size_t N>
+    DeferredData(std::vector<std::array<T, N>> arr_arr, uint32_t &offset, uint32_t &size)
     : offset(&offset)
     {
-        this->size = size = static_cast<uint32_t>(sizeof(T) * arr_arr.size() * C);
+        this->size = size = static_cast<uint32_t>(sizeof(T) * arr_arr.size() * N);
 
         data = new char[size];
         data = reinterpret_cast<char*>(std::move(arr_arr.data()));

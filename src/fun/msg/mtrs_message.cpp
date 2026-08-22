@@ -26,7 +26,6 @@ void flag_message(FlagMessage flag)
 
 void detail::show_message(TypeMessage tmsg, std::string&& message)
 {
-    
     switch (tmsg)
     {
     case TypeMessage::ERROR:

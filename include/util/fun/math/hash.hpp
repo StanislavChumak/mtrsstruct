@@ -27,12 +27,12 @@ constexpr T fnv1a(const char *data, size_t size, T seed, T prime)
 
 constexpr uint32_t hash32(const void *data, size_t size, uint32_t seed = FNV_OFFSET_BASIS_32)
 {
-    return fnv1a<uint32_t>(reinterpret_cast<const char*>(data), size, seed, FNV_PRIME_32);
+    return fnv1a<uint32_t>(static_cast<const char*>(data), size, seed, FNV_PRIME_32);
 }
 
 constexpr uint64_t hash64(const void *data, size_t size, uint64_t seed = FNV_PRIME_64)
 {
-    return fnv1a<uint64_t>(reinterpret_cast<const char*>(data), size, seed, FNV_PRIME_64);
+    return fnv1a<uint64_t>(static_cast<const char*>(data), size, seed, FNV_PRIME_64);
 }
 
 constexpr uint32_t hash32(const char *str, uint32_t seed = FNV_OFFSET_BASIS_32)

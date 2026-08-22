@@ -4,18 +4,17 @@
 
 #include "util/fun/msg/mtrs_message.hpp"
 
-
 namespace mtrs::msg
 {
 
 template<typename T>
-bool verification_message(std::string name, const T &check, const T &due)
+bool verification_message(std::string name, const T &due, const T &check)
 {
     bool check_result = check == due;
     if(detail::_config.skip_error || check_result) return check_result;
 
-    mtrs_message(TypeMessage::ERROR, "The value of \"", name, "\"actually corresponds to \"",
-        check, "\", which does not match the proper \"", due);
+    mtrs_message(TypeMessage::ERROR, "The value of \"", name, "\" actually corresponds to \"",
+        check, "\", which does not match the proper \"", due, "\"");
     
     return false;
 }
