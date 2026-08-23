@@ -8,6 +8,7 @@
 #include <array>
 #include <string>
 #include <type_traits>
+#include <cstring>
 
 namespace mtrs::prs
 {
@@ -41,7 +42,7 @@ public:
         this->size = size = static_cast<uint32_t>(sizeof(T) * array.size());
 
         data = new char[size];
-        data = reinterpret_cast<char*>(std::move(array.data()));
+        std::memcpy(data, array.data(), size);
     }
 
     template<typename T, size_t N>
@@ -51,7 +52,7 @@ public:
         this->size = size = static_cast<uint32_t>(sizeof(T) * arr_arr.size() * N);
 
         data = new char[size];
-        data = reinterpret_cast<char*>(std::move(arr_arr.data()));
+        std::memcpy(data, arr_arr.data(), size);
     }
 };
 
