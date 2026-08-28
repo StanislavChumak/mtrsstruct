@@ -13,6 +13,7 @@ struct Label
     float layer;
     uint32_t size_x, size_y;
     uint32_t color;
+    bool visibility;
 };
 
 }

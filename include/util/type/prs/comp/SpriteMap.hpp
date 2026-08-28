@@ -16,6 +16,7 @@ struct SpriteMap
     float layer;
     uint32_t cell_size_x, cell_size_y;
     uint32_t color;
+    bool visibility;
     struct MapCell
     {
         uint32_t type;
