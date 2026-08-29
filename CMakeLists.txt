@@ -21,8 +21,6 @@ src/fun/str/string_optimizer.cpp
 src/fun/str/utf8_to_utf32.cpp
 src/fun/str/preprocess_json.cpp
 
-src/type/mtrscnt/DeferredData.cpp
-
 )
 
 target_include_directories(${LIB_NAME} PUBLIC

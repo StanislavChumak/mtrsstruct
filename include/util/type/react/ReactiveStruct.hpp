@@ -31,7 +31,7 @@ public:
     }
 
     template <typename Field, typename Arg>
-    void set_field(Field T::* member, Arg value)
+    void set_field(Field T::*member, Arg value)
     {
         this->_value.*member = std::move(value);
         this->_dirty = true;
@@ -39,7 +39,7 @@ public:
     }
 
     template <typename Field>
-    const Field& get_field(Field T::* member) const
+    const Field& get_field(Field T::*member) const
     {
         return this->_value.*member;
     }

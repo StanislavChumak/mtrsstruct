@@ -17,7 +17,7 @@ T get_result_json(R result)
 {
     if(result.error())
     {
-        msg::mtrs_error("Failed to get ", demangle<T>()," from json\n",
+        msg::mtrs_error("Failed to get ", mtrs::str::demangle<T>()," from json\n",
             "Error: ", simdjson::error_message(result.error()));
     }
     return result.value();
@@ -35,7 +35,7 @@ void set_json_to_var(D &dest, S source, std::string field)
     auto result = source[field].template get<T>();
     if(result.error())
     {
-        msg::mtrs_error("Failed to get ", demangle<T>()," from ", field,
+        msg::mtrs_error("Failed to get ", mtrs::str::demangle<T>()," from ", field,
             "\nError: ", simdjson::error_message(result.error()));
         return;
     }
@@ -69,7 +69,7 @@ void set_json_to_array(std::vector<D> &dest, S source, std::string field)
         iter_result = iter.template get<T>();
         if(iter_result.error())
         {
-            msg::mtrs_error("Failed to get ", demangle<T>()," from array ", field,
+            msg::mtrs_error("Failed to get ", mtrs::str::demangle<T>()," from array ", field,
                 "\nError: ", simdjson::error_message(result.error()));
             return;
         }
@@ -132,7 +132,7 @@ void set_json_to_array_of_array(std::vector<std::array<D, N>> &dest, S source, s
             element_result = iter.template get<T>();
             if(element_result.error())
             {
-                msg::mtrs_error("Failed to get ",demangle<T>()," from array of array ", field,
+                msg::mtrs_error("Failed to get ",mtrs::str::demangle<T>()," from array of array ", field,
                 "\nError: ", simdjson::error_message(result.error()));
                 return;
             }

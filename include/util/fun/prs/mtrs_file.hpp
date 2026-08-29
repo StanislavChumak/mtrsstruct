@@ -9,8 +9,8 @@
 namespace mtrs::prs
 {
 
-template<typename T>
-void set_mtrs_to_var(std::ifstream &file, T& dest, uint32_t offset, uint32_t size)
+template<typename File, typename T>
+void set_mtrs_to_var(File &file, T& dest, uint32_t offset, uint32_t size)
 {
     std::streampos pos_buffer = file.tellg();
 

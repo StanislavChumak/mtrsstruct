@@ -1,18 +1,30 @@
 #ifndef DEMANGLE_HPP
 #define DEMANGLE_HPP
 
-#include <typeinfo>
-#include <cxxabi.h>
-#include <memory>
+#include <string>
+#include <string_view>
+
+namespace mtrs::str
+{
 
 template<typename T>
-std::string demangle() {
-    int status;
-    std::unique_ptr<char, void(*)(void*)> demangled(
-        abi::__cxa_demangle(typeid(T).name(), nullptr, nullptr, &status),
-        std::free
-    );
-    return status == 0 ? demangled.get() : typeid(T).name();
+std::string_view demangle() {
+#if defined(__clang__) || defined(__GNUC__)
+    std::string_view name = __PRETTY_FUNCTION__;
+    auto start = name.find("T = ") + 4;
+    auto end = name.find(']', start);
+    return name.substr(start, end - start);
+#elif defined(_MSC_VER)
+    // "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl type_name<int>(void)"
+    std::string_view name = __FUNCSIG__;
+    auto start = name.rfind('<') + 1;
+    auto end = name.rfind('>');
+    return name.substr(start, end - start);
+#else
+    return typeid(T).name();
+#endif
+}
+
 }
 
 #endif
