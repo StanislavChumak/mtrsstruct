@@ -8,9 +8,7 @@ namespace mtrs::prs
 
 struct Font
 {
-    DEFERRED_FIELD(texture);
-    DEFERRED_FIELD(symbols);
-    DEFERRED_FIELD(symbol_widths);
+    DEFERRED_FIELDS(texture, symbols, symbol_widths);
     struct SymbolWidth
     {
         uint32_t count;

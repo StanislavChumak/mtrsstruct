@@ -8,8 +8,7 @@ namespace mtrs::prs
 
 struct MapAnimator
 {
-    DEFERRED_FIELD(durations);
-    DEFERRED_FIELD(cell_animators);
+    DEFERRED_FIELDS(durations, cell_animators);
     struct CellAnimator{uint32_t frame_offset, count_frame;};
 };
 

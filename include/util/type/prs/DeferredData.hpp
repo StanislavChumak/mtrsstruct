@@ -4,10 +4,6 @@
 #include "util/fun/msg/mtrs_message.hpp"
 
 #include <cstdint>
-#include <vector>
-#include <array>
-#include <string>
-#include <type_traits>
 #include <cstring>
 
 namespace mtrs::prs
@@ -15,20 +11,24 @@ namespace mtrs::prs
 
 struct DeferredData
 {
-    uint32_t *offset;
-    uint32_t size;
+    uint32_t *field;
     char *data;
 
-    DeferredData() = delete;
+    DeferredData() : field(nullptr), data(nullptr) {}
+    DeferredData(const DeferredData&) = delete;
+    DeferredData &operator=(const DeferredData&) = delete;
+    DeferredData(DeferredData &&other);
+    DeferredData &operator=(DeferredData &&other);
+    ~DeferredData();
 
     template<typename T>
-    DeferredData(T array, uint32_t &offset, uint32_t &size)
-    : offset(&offset)
+    DeferredData(T array, uint64_t &field)
+    : field(reinterpret_cast<uint32_t*>(&field))
     {
-        this->size = size = static_cast<uint32_t>(sizeof(array[0]) * array.size());
+        this->field[1] = static_cast<uint32_t>(sizeof(array[0]) * array.size());
 
-        data = new char[size];
-        std::memcpy(data, array.data(), size);
+        data = new char[this->field[1]];
+        std::memcpy(data, array.data(), this->field[1]);
     }
 };
 

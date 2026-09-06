@@ -8,7 +8,7 @@ namespace mtrs::prs
 
 struct ScriptFile
 {
-    DEFERRED_FIELD(path);
+    DEFERRED_FIELDS(path);
 };
 
 }

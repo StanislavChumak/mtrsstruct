@@ -8,7 +8,7 @@ namespace mtrs::prs
 
 struct ScriptUpdate
 {
-    DEFERRED_FIELD(script_file);
+    DEFERRED_FIELDS(script_file);
 };
 
 }

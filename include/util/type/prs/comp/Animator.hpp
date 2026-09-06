@@ -8,8 +8,8 @@ namespace mtrs::prs
 
 struct Animator
 {
+    DEFERRED_FIELDS(durations);
     uint32_t frame_offset, count_frame;
-    DEFERRED_FIELD(durations);
 };
 
 }

@@ -8,7 +8,7 @@ namespace mtrs::prs
 
 struct TextureAtlas
 {
-    DEFERRED_FIELD(texture);
+    DEFERRED_FIELDS(texture);
     uint64_t sub_width;
     uint64_t sub_height;
     bool spirality;

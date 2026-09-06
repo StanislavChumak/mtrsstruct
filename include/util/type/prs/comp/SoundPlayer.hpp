@@ -8,7 +8,7 @@ namespace mtrs::prs
 
 struct SoundPlayer
 {
-    DEFERRED_FIELD(sound);
+    DEFERRED_FIELDS(sound);
     float volume;
 };
 

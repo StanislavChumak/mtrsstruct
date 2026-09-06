@@ -8,8 +8,7 @@ namespace mtrs::prs
 
 struct ShaderProgram
 {
-    DEFERRED_FIELD(vertex);
-    DEFERRED_FIELD(fragment);
+    DEFERRED_FIELDS(vertex, fragment);
 };
 
 }

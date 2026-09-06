@@ -8,7 +8,7 @@ namespace mtrs::prs
 
 struct ScriptCallback
 {
-    DEFERRED_FIELD(script_file);
+    DEFERRED_FIELDS(script_file);
 };
 
 }

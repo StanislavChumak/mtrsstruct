@@ -8,7 +8,7 @@ namespace mtrs::prs
 
 struct Sound
 {
-    DEFERRED_FIELD(path);
+    DEFERRED_FIELDS(path);
     uint32_t flag;
     uint16_t count, max_distance;
 };

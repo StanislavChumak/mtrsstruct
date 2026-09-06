@@ -8,9 +8,7 @@ namespace mtrs::prs
 
 struct Sprite
 {
-    DEFERRED_FIELD(shader);
-    DEFERRED_FIELD(texture);
-    DEFERRED_FIELD(atlas);
+    DEFERRED_FIELDS(shader, texture, atlas);
     uint32_t size_x, size_y;
     float layer;
     uint32_t color;

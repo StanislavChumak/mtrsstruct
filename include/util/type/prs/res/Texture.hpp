@@ -8,7 +8,7 @@ namespace mtrs::prs
 
 struct Texture
 {
-    DEFERRED_FIELD(path);
+    DEFERRED_FIELDS(path);
     uint64_t max_instances;
 };
 

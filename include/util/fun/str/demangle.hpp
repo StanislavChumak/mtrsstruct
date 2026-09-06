@@ -12,7 +12,7 @@ std::string_view demangle() {
 #if defined(__clang__) || defined(__GNUC__)
     std::string_view name = __PRETTY_FUNCTION__;
     auto start = name.find("T = ") + 4;
-    auto end = name.find(']', start);
+    auto end = name.find_first_of("];", start);
     return name.substr(start, end - start);
 #elif defined(_MSC_VER)
     // "class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl type_name<int>(void)"

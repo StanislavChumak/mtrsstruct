@@ -2,6 +2,7 @@
 #define COMPONENT_TYPES \
 X(ScriptUpdate)\
 X(ScriptCallback)\
+X(StoredData)\
 X(Transform)\
 X(Sprite)\
 X(Animator)\

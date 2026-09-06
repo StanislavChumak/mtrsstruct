@@ -30,7 +30,7 @@ T get_value_json(J json)
 }
 
 template<typename T, typename D, typename S>
-void set_json_to_var(D &dest, S source, std::string field)
+void set_json_to_var(D &dest, S &source, std::string field)
 {
     auto result = source[field].template get<T>();
     if(result.error())
@@ -43,14 +43,14 @@ void set_json_to_var(D &dest, S source, std::string field)
 }
 
 template<typename T, typename D, typename S>
-void set_json_to_var(D &dest, S source, std::string field, T value)
+void set_json_to_var(D &dest, S &source, std::string field, T value)
 {
     auto result = source[field].template get<T>();
     dest = result.error() ? value : static_cast<D>(std::move(result.value()));
 }
 
 template<typename T, typename D, typename S>
-void set_json_to_array(std::vector<D> &dest, S source, std::string field)
+void set_json_to_array(std::vector<D> &dest, S &source, std::string field)
 {
     dest.clear();
     auto result = source[field].template get<simdjson::ondemand::array>();
@@ -80,7 +80,7 @@ void set_json_to_array(std::vector<D> &dest, S source, std::string field)
 }
 
 template<typename T, typename D, typename S>
-void set_json_to_array(std::vector<D> &dest, S source, std::string field, std::vector<D> value)
+void set_json_to_array(std::vector<D> &dest, S &source, std::string field, std::vector<D> value)
 {
     dest.clear();
     auto result = source[field].template get<simdjson::ondemand::array>();
@@ -99,7 +99,7 @@ void set_json_to_array(std::vector<D> &dest, S source, std::string field, std::v
 }
 
 template<typename T, typename D, size_t N, typename S>
-void set_json_to_array_of_array(std::vector<std::array<D, N>> &dest, S source, std::string field)
+void set_json_to_array_of_array(std::vector<std::array<D, N>> &dest, S &source, std::string field)
 {
     dest.clear();
     auto result = source[field].template get<simdjson::ondemand::array>();

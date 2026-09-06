@@ -1,5 +1,16 @@
-#ifndef DEFERRED_FIELD
+#ifndef DEFERRED_FIELDS
 #include <cstdint>
-#define DEFERRED_FIELD(field) uint32_t field##_offset, field##_size
-#define DEFERRED_ARGS(struct,field) (struct).field##_offset, (struct).field##_size
+#include <array>
+template<typename Arg, typename... Args>
+constexpr std::array<Arg*, sizeof...(Args) + 1> make_array(Arg &arg, Args &...args)
+{
+    if constexpr (sizeof...(Args) == 0)
+        return std::array<Arg*, 1>{&arg};
+    else
+        return std::array<Arg*, sizeof...(Args) + 1>{&arg, (&args)...};
+}
+
+#define DEFERRED_FIELDS(...) \
+    auto get_deferred_fields() { return make_array(__VA_ARGS__); } \
+    uint64_t __VA_ARGS__
 #endif

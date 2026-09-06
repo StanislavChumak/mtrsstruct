@@ -8,7 +8,7 @@ namespace mtrs::prs
 
 struct StateAnimator
 {
-    DEFERRED_FIELD(states);
+    DEFERRED_FIELDS(states);
     struct State
     {
         uint32_t id;

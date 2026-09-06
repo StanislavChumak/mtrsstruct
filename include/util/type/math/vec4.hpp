@@ -12,13 +12,13 @@ struct vec4
     T x,y,z,w;
 
     template<int C>
-    vec3(vec<T, C> &&other)
+    vec4(vec<T, C> &&other)
     {
         operator=(other);
     }
 
     template<int C>
-    vec3<T> &operator=(vec<T, C> &&other)
+    vec4<T> &operator=(vec<T, C> &&other)
     {
         static_assert(C >= 4, "conversion is impossible");
         x = other[0];
